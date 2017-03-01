@@ -37,13 +37,13 @@ ArrayList.prototype.prepend = function(value) {
   this._array.set(0, value);
   this._size++;
   return this;
-}
+};
 
 ArrayList.prototype._shiftRight = function() {
   for (let i = this._size - 1; i >= 0; i--) {
     this._array.set(i + 1, this._array.get(i));
   }
-}
+};
 
 ArrayList.prototype._expand = function() {
   if (this._size != this._array.size()) {
@@ -57,12 +57,16 @@ ArrayList.prototype._expand = function() {
   }
 
   this._array = tempArray;
-}
+};
 
 // Define a "delete" method which takes a single index argument. This method
 // should delete the value at the provided index and return it. The size should
 // be 1 less than it was before this method was called. The index must be within
 // the bounds of the ArrayList, or an IndexError should be thrown.
+
+ArrayList.prototype.delete = function() {
+  return this;
+};
 
 // Define a method "set" which takes 2 arguments. This method should set the
 // value at the index defined in the first argument such that list.get(index)
@@ -82,6 +86,11 @@ ArrayList.prototype._expand = function() {
 //
 // This method should return the value that was previously in the given index,
 // or null if that does not apply.
+
+ArrayList.prototype.set = function(index, value) {
+  this._checkBounds(index);
+};
+
 
 ArrayList.prototype._checkBounds = function(index) {
     this._checkLowerBound(index);

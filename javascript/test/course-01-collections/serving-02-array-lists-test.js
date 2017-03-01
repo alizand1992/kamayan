@@ -145,14 +145,14 @@ test("index set exists", function() {
     assert.methodExists(ArrayList, "set", 2);
 });
 
-test.skip("index set cannot use negative number", function() {
+test("index set cannot use negative number", function() {
     var list = new ArrayList();
     assert.throws(() => { list.set(-1, 1); }, IndexError);
     assert.throws(() => { list.set(-42, 1); }, IndexError);
     assert.equal(list.size(), 0);
 });
 
-test.skip("index set can use existing indexes", function() {
+test("index set can use existing indexes", function() {
     var list = new ArrayList().add(0).add(1).add(2).add(3);
     list.set(0, 1);
     list.set(1, 2);
