@@ -211,7 +211,7 @@ public class Serving_02_ArrayListsTest extends TestCase {
         assertEquals(3, list.get(1042));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setWithTheNextAvailableIndexUpdatesTheSize() {
         ArrayList list = new ArrayList();

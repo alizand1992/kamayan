@@ -21,19 +21,38 @@ public class ArrayList {
     }
 
     public ArrayList add(Object value) {
-        throw Kamayan.todo(
-            "The add(Object) method should append the argument to the end of",
-            "this ArrayList and increase the size by 1. The return value must",
-            "be this."
-        );
+        // throw Kamayan.todo(
+        //     "The add(Object) method should append the argument to the end of",
+        //     "this ArrayList and increase the size by 1. The return value must",
+        //     "be this."
+        // );
+        if (this.size == this.array.length)
+            this.expand();
+        this.array[this.size++] = value;
+        return this;
+    }
+
+    private void expand() {
+        int newSize = this.size * 2;
+        Object[] temp = new Object[newSize];
+        for (int i = 0; i < this.size; i++)
+            temp[i] = this.array[i];
+        this.array = temp;
     }
 
     public ArrayList prepend(Object value) {
-        throw Kamayan.todo(
-            "The prepend(Object) method should prepend the argument to the",
-            "beginning of this ArrayList and increase the size by 1. The",
-            "return value must be this."
-        );
+        // throw Kamayan.todo(
+        //     "The prepend(Object) method should prepend the argument to the",
+        //     "beginning of this ArrayList and increase the size by 1. The",
+        //     "return value must be this."
+        // );
+        if (this.size == this.array.length)
+            this.expand();
+        for (int i = size; i > 0; i--)
+            this.array[i] = this.array[i - 1];
+        this.array[0] = value;
+        this.size++;
+        return this;
     }
 
     public Object delete(int index) {
@@ -46,29 +65,40 @@ public class ArrayList {
     }
 
     public Object set(int index, Object value) {
-        throw Kamayan.todo(
-            "The set(int, Object) method should set the value at the index",
-            "defined in the first argument such that list.get(index) will",
-            "return the second argument.",
-            "",
-            "If the index is negative, an IndexOutOfBoundsException should be",
-            "thrown.",
-            "",
-            "If the index is bigger than the current size of the internal",
-            "array, the internal array should be replaced with a bigger array",
-            "to fit the new index. All indexes between the former last element",
-            "and the new index should be initialized with null. An additional",
-            "buffer should be included in the new array (in case the array is",
-            "grown more), though this is not required.",
-            "",
-            "The size after this method is called depends on the index",
-            "provided. An existing index would not affect the size, but an",
-            "index greater than the last index will add the difference to the",
-            "size.",
-            "",
-            "This method should return the value that was previously in the",
-            "given index, or null if that does not apply."
-        );
+        // throw Kamayan.todo(
+        //     "The set(int, Object) method should set the value at the index",
+        //     "defined in the first argument such that list.get(index) will",
+        //     "return the second argument.",
+        //     "",
+        //     "If the index is negative, an IndexOutOfBoundsException should be",
+        //     "thrown.",
+        //     "",
+        //     "If the index is bigger than the current size of the internal",
+        //     "array, the internal array should be replaced with a bigger array",
+        //     "to fit the new index. All indexes between the former last element",
+        //     "and the new index should be initialized with null. An additional",
+        //     "buffer should be included in the new array (in case the array is",
+        //     "grown more), though this is not required.",
+        //     "",
+        //     "The size after this method is called depends on the index",
+        //     "provided. An existing index would not affect the size, but an",
+        //     "index greater than the last index will add the difference to the",
+        //     "size.",
+        //     "",
+        //     "This method should return the value that was previously in the",
+        //     "given index, or null if that does not apply."
+        // );
+        Object previousVal = null;
+        if (index > this.array.length)
+            this.expand();
+        while (this.array.length <= index) {
+            this.expand();
+        }
+        if (this.size <= index)
+            previousVal = this.array[index];
+        this.array[index] = value;
+        this.size = index + 1;
+        return previousVal;
     }
 
     private void checkBounds(int index) {
