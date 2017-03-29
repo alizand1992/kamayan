@@ -87,11 +87,7 @@ public class LinkedList {
         //     "The index must be within the bounds of the LinkedList, or an",
         //     "IndexOutOfBoundsException should be thrown."
         // );
-        try {
-            checkBounds(index);
-        } catch (IndexOutOfBoundsException e) {
-            throw e;
-        }
+        checkBounds(index);
 
         Node currentNode = head;
 
@@ -102,27 +98,50 @@ public class LinkedList {
     }
 
     public Object set(int index, Object value) {
-        throw Kamayan.todo(
-            "The set(int, Object) method should set the value at the index",
-            "defined in the first argument such that list.get(index) will",
-            "return the second argument.",
-            "",
-            "If the index is negative, an IndexOutOfBoundsException should be",
-            "thrown.",
-            "",
-            "If the index is bigger than the current size of the linked list,",
-            "the links should be adjusted to fit the new index. All indexes",
-            "between the former last element and the new index should be",
-            "initialized with null.",
-            "",
-            "The size after this method is called depends on the index",
-            "provided. An existing index would not affect the size, but an",
-            "index greater than the last index will add the difference to the",
-            "size.",
-            "",
-            "This method should return the value that was previously in the",
-            "given index, or null if that does not apply."
-        );
+        // throw Kamayan.todo(
+        //     "The set(int, Object) method should set the value at the index",
+        //     "defined in the first argument such that list.get(index) will",
+        //     "return the second argument.",
+        //     "",
+        //     "If the index is negative, an IndexOutOfBoundsException should be",
+        //     "thrown.",
+        //     "",
+        //     "If the index is bigger than the current size of the linked list,",
+        //     "the links should be adjusted to fit the new index. All indexes",
+        //     "between the former last element and the new index should be",
+        //     "initialized with null.",
+        //     "",
+        //     "The size after this method is called depends on the index",
+        //     "provided. An existing index would not affect the size, but an",
+        //     "index greater than the last index will add the difference to the",
+        //     "size.",
+        //     "",
+        //     "This method should return the value that was previously in the",
+        //     "given index, or null if that does not apply."
+        // );
+
+        checkLowerBound(index);
+
+        Node currentNode = head;
+        if (currentNode == null) {
+            currentNode = new Node(null, null);
+            head = currentNode;
+        }
+
+        for (int i = 0; i <= index; i++) {
+            if (currentNode.child == null) {
+                currentNode.child = new Node(null, null);
+                size++;
+            } else {
+                currentNode = currentNode.child;
+            }
+        }
+
+        Object previousValue = currentNode.value;
+
+        currentNode.value = value;
+
+        return previousValue;
     }
 
     private void checkBounds(int index) {
