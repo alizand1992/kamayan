@@ -62,6 +62,14 @@ public class LinkedList {
             size++;
             return this;
         }
+
+        Node currentNode = this.head;
+        while (currentNode.child != null) {
+            currentNode = currentNode.child;
+        }
+        currentNode.child = new Node(value);
+        size++;
+        return this;
     }
 
     public Object delete(int index) {
