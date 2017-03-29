@@ -89,7 +89,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         });
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addAddsToTheEnd() {
         LinkedList list = new LinkedList();

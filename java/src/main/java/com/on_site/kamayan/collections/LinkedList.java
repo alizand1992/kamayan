@@ -52,11 +52,16 @@ public class LinkedList {
     }
 
     public LinkedList add(Object value) {
-        throw Kamayan.todo(
-            "The add(Object) method should append the argument to the end of",
-            "this LinkedList and increase the size by 1. The return value must",
-            "be this."
-        );
+        // throw Kamayan.todo(
+        //     "The add(Object) method should append the argument to the end of",
+        //     "this LinkedList and increase the size by 1. The return value must",
+        //     "be this."
+        // );
+        if (this.size == 0) {
+            this.head = new Node(value);
+            size++;
+            return this;
+        }
     }
 
     public Object delete(int index) {
