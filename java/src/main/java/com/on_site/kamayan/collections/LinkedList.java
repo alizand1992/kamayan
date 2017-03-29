@@ -34,11 +34,21 @@ public class LinkedList {
     }
 
     public LinkedList prepend(Object value) {
-        throw Kamayan.todo(
-            "The prepend(Object) method should prepend the argument to the",
-            "beginning of this LinkedList and increase the size by 1. The",
-            "return value must be this."
-        );
+        // throw Kamayan.todo(
+        //     "The prepend(Object) method should prepend the argument to the",
+        //     "beginning of this LinkedList and increase the size by 1. The",
+        //     "return value must be this."
+        // );
+        if (this.head == null) {
+            this.head = new Node(value);
+            this.size++;
+            return this;
+        }
+
+        Node temp = this.head;
+        this.head = new Node(value, temp);
+        this.size++;
+        return this;
     }
 
     public LinkedList add(Object value) {
