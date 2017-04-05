@@ -81,6 +81,26 @@ public class LinkedList {
         // );
 
         checkBounds(index);
+
+        Node currentNode = this.head;
+        Node previousNode = this.head;
+
+        for (int i = 0; i < index; i++) {
+            previousNode = currentNode;
+            currentNode = currentNode.child;
+        }
+
+        Object prevValue = currentNode.value;
+
+        if (currentNode.equals(previousNode)) {
+            this.head = currentNode.child;
+        } else {
+            previousNode.child = currentNode.child;
+        }
+
+        this.size--;
+
+        return prevValue;
     }
 
     public Object get(int index) {

@@ -302,7 +302,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> { list.delete(42); });
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteRemovesTheElement() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);
@@ -311,7 +311,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(3, list.get(1));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteReturnsTheElementAtTheIndex() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);
@@ -320,7 +320,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(2, list.delete(0));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteUpdatesTheSize() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);
@@ -332,7 +332,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(0, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteCanBeCalledALot() {
         LinkedList list = new LinkedList();
