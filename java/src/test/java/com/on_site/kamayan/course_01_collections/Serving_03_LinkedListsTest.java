@@ -226,7 +226,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         Kamayan.times(4, (i) -> assertEquals(i + 1, list.get(i)));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setUpdatesTheSizeWhenAddingToTheEndOfTheList() {
         LinkedList list = new LinkedList();
@@ -240,7 +240,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(4, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setCanUseDistantIndexes() {
         LinkedList list = new LinkedList();
@@ -255,7 +255,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(3, list.get(1042));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setWithDistantIndexesUpdatesTheSize() {
         LinkedList list = new LinkedList();
@@ -267,14 +267,14 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(1043, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setReturnsNullIfThePreviousValueWasNull() {
         LinkedList list = new LinkedList().add(null);
         assertNull(list.set(0, 42));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setReturnsNullIfTheIndexIsBeyondTheCurrentSize() {
         LinkedList list = new LinkedList();
@@ -282,7 +282,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertNull(list.set(42, 43));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void setReturnsThePreviousValue() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);
@@ -292,7 +292,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertEquals(3, list.set(2, 45));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteCannotDeleteOutsideTheBoundsOfTheLinkedList() {
         LinkedList list = new LinkedList().add(1).add(2).add(3);

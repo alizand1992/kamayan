@@ -73,12 +73,14 @@ public class LinkedList {
     }
 
     public Object delete(int index) {
-        throw Kamayan.todo(
-            "The delete(int) method should delete the value at the provided",
-            "index and return it. The size should be 1 less than it was before",
-            "this method was called. The index must be within the bounds of the",
-            "LinkedList, or an IndexOutOfBoundsException should be thrown."
-        );
+        // throw Kamayan.todo(
+        //     "The delete(int) method should delete the value at the provided",
+        //     "index and return it. The size should be 1 less than it was before",
+        //     "this method was called. The index must be within the bounds of the",
+        //     "LinkedList, or an IndexOutOfBoundsException should be thrown."
+        // );
+
+        checkBounds(index);
     }
 
     public Object get(int index) {
@@ -122,25 +124,22 @@ public class LinkedList {
 
         checkLowerBound(index);
 
-        Node currentNode = head;
-        if (currentNode == null) {
-            currentNode = new Node(null, null);
-            head = currentNode;
+        if (this.size == 0) {
+            head = new Node(null);
+            this.size++;
         }
+        Node currentNode = head;
 
-        for (int i = 0; i <= index; i++) {
+        for (int i = 0; i < index; i++) {
             if (currentNode.child == null) {
-                currentNode.child = new Node(null, null);
-                size++;
-            } else {
-                currentNode = currentNode.child;
+                currentNode.child = new Node(null);
+                this.size++;
             }
+            currentNode = currentNode.child;
         }
 
         Object previousValue = currentNode.value;
-
         currentNode.value = value;
-
         return previousValue;
     }
 
