@@ -42,11 +42,25 @@ public class DoublyLinkedList {
     }
 
     public DoublyLinkedList prepend(Object value) {
-        throw Kamayan.todo(
-            "The prepend(Object) method should prepend the argument to the",
-            "beginning of this DoublyLinkedList and increase the size by 1. The",
-            "return value must be this."
-        );
+        // throw Kamayan.todo(
+        //     "The prepend(Object) method should prepend the argument to the",
+        //     "beginning of this DoublyLinkedList and increase the size by 1. The",
+        //     "return value must be this."
+        // );
+        this.head = new Node(value, null, this.head);
+
+        // I AM LAZY!!!
+        if (this.tail == null) {
+            this.tail = this.head;
+        } else {
+            this.head.child.previous = this.head;
+        }
+
+        this.size++;
+        // this.size += 1;
+        // this.size = this.size + 1;
+
+        return this;
     }
 
     public DoublyLinkedList add(Object value) {
