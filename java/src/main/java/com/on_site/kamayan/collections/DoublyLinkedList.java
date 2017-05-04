@@ -83,25 +83,37 @@ public class DoublyLinkedList {
     }
 
     public Object first() {
-        throw Kamayan.todo(
-            "The first() method should return the value of the first item. An",
-            "IndexOutOfBoundsException should be thrown if the list is empty."
-        );
+        // throw Kamayan.todo(
+        //     "The first() method should return the value of the first item. An",
+        //     "IndexOutOfBoundsException should be thrown if the list is empty."
+        // );
+        checkBounds(0);
+        return this.head.value;
     }
 
     public Object last() {
-        throw Kamayan.todo(
-            "The last() method should return the value of that item. An",
-            "IndexOutOfBoundsException should be thrown if the list is empty."
-        );
+        // throw Kamayan.todo(
+        //     "The last() method should return the value of that item. An",
+        //     "IndexOutOfBoundsException should be thrown if the list is empty."
+        // );
+        checkBounds(0);
+        return this.tail.value;
     }
 
     public Object deleteFirst() {
-        throw Kamayan.todo(
-            "The deleteFirst() method should delete the first item in the list",
-            "and return the value of that item. The size must be reduced by 1.",
-            "An IndexOutOfBoundsException should be thrown if the list is empty."
-        );
+        // throw Kamayan.todo(
+        //     "The deleteFirst() method should delete the first item in the list",
+        //     "and return the value of that item. The size must be reduced by 1.",
+        //     "An IndexOutOfBoundsException should be thrown if the list is empty."
+        // );
+        checkBounds(0);
+
+        Object value = null;
+        value = this.head.value;
+        this.head = this.head.child;
+        this.head.previous = null;
+        size--;
+        return value;
     }
 
     public Object deleteLast() {
