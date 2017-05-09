@@ -108,35 +108,66 @@ public class DoublyLinkedList {
         // );
         checkBounds(0);
 
-        Object value = null;
-        value = this.head.value;
+        Object value = this.head.value;
         this.head = this.head.child;
-        this.head.previous = null;
-        size--;
+        if (this.head != null) {
+            this.head.previous = null;
+        } else {
+            this.tail = null;
+        }
+        this.size--;
         return value;
     }
 
     public Object deleteLast() {
-        throw Kamayan.todo(
-            "The deleteLast() should delete the last item in the list and",
-            "return the value of that item. The size must be reduced by 1. An",
-            "IndexOutOfBoundsException should be thrown if the list is empty."
-        );
+        // throw Kamayan.todo(
+        //     "The deleteLast() should delete the last item in the list and",
+        //     "return the value of that item. The size must be reduced by 1. An",
+        //     "IndexOutOfBoundsException should be thrown if the list is empty."
+        // );
+        checkBounds(0);
+
+        Object value = this.tail.value;
+        this.tail = this.tail.previous;
+        if (this.tail != null) {
+            this.tail.child = null;
+        } else {
+            this.head = null;
+        }
+        this.size--;
+        return value;
     }
 
     public DoublyLinkedList each(Consumer<Object> block) {
-        throw Kamayan.todo(
-            "The each(Consumer) method yields to the consumer with each element",
-            "in the list, in order. The return value must be this."
-        );
+        // throw Kamayan.todo(
+        //     "The each(Consumer) method yields to the consumer with each element",
+        //     "in the list, in order. The return value must be this."
+        // );
+        Node currentNode = this.head;
+
+        while (currentNode != null) {
+            block.accept(currentNode.value);
+            currentNode = currentNode.child;
+        }
+
+        return this;
     }
 
     public DoublyLinkedList eachReversed(Consumer<Object> block) {
-        throw Kamayan.todo(
-            "The eachReversed(Consumer) method yields to the consumer with each",
-            "element in the list, in reverse order. The return value must be",
-            "this."
-        );
+        // throw Kamayan.todo(
+        //     "The eachReversed(Consumer) method yields to the consumer with each",
+        //     "element in the list, in reverse order. The return value must be",
+        //     "this."
+        // );
+
+        Node currentNode = this.tail;
+
+        while (currentNode != null) {
+            block.accept(currentNode.value);
+            currentNode = currentNode.previous;
+        }
+
+        return this;
     }
 
     private void checkBounds(int index) {
