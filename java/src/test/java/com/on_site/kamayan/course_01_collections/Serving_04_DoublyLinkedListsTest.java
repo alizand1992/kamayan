@@ -93,7 +93,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
     }
     // Session One Ends Here
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addAddsToTheEnd() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -105,7 +105,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertNull(Kamayan.getField(list, Object.class, "head", "child", "child"));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addUpdatesPreviousLinks() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -118,7 +118,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertNull(Kamayan.getField(list, Object.class, "tail", "previous", "previous"));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addIncreasesTheSize() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -128,7 +128,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(2, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addReturnsThisSoThatItIsChainable() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -138,7 +138,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertNull(Kamayan.getField(list, Object.class, "head", "child", "child"));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addCanBeCalledALot() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -152,7 +152,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         });
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addAndPrependAreChainableTogether() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -164,7 +164,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertNull(Kamayan.getField(list, Object.class, "head", "child", "child", "child", "child"));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void chainedAddAndPrependIncreasesTheSize() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -172,14 +172,14 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(4, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void firstCannotBeCalledOnEmptyList() {
         DoublyLinkedList list = new DoublyLinkedList();
         assertThrows(IndexOutOfBoundsException.class, () -> list.first());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void firstReturnsTheFirstElement() {
         DoublyLinkedList list = new DoublyLinkedList().add(1);
@@ -192,14 +192,14 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(43, list.first());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void lastCannotBeCalledOnEmptyList() {
         DoublyLinkedList list = new DoublyLinkedList();
         assertThrows(IndexOutOfBoundsException.class, () -> list.last());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void lastReturnsTheLastElement() {
         DoublyLinkedList list = new DoublyLinkedList().add(1);
@@ -212,14 +212,14 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(43, list.last());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstCannotDeleteFromAnEmptyList() {
         DoublyLinkedList list = new DoublyLinkedList();
         assertThrows(IndexOutOfBoundsException.class, () -> list.deleteFirst());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstRemovesTheFirstElement() {
         DoublyLinkedList list = new DoublyLinkedList().add(1).add(2).add(3);
@@ -229,7 +229,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(3, list.first());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstReturnsTheDeletedElement() {
         DoublyLinkedList list = new DoublyLinkedList().add(1).add(2).add(3);
@@ -238,7 +238,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(3, list.deleteFirst());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstUpdatesTheSize() {
         DoublyLinkedList list = new DoublyLinkedList().add(1).add(2).add(3);
@@ -250,7 +250,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(0, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstCanBeCalledALot() {
         DoublyLinkedList list = new DoublyLinkedList();
@@ -259,7 +259,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertEquals(0, list.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstUpdatesChildLinks() {
         DoublyLinkedList list = new DoublyLinkedList().add(1).add(2).add(3);
@@ -276,7 +276,7 @@ public class Serving_04_DoublyLinkedListsTest extends TestCase {
         assertNull(Kamayan.getField(list, Object.class, "head"));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void deleteFirstUpdatesPreviousLinks() {
         DoublyLinkedList list = new DoublyLinkedList().add(1).add(2).add(3);
