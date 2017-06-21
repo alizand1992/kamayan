@@ -47,7 +47,7 @@ public class Stack {
         //     "is empty."
         // );
 
-        if (size() == 0) {
+        if (isEmpty()) {
             throw new IndexOutOfBoundsException("The stack is empty");
         }
         Object value = list.last();
