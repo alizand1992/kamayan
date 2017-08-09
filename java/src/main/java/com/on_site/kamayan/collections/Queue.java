@@ -17,31 +17,44 @@ public class Queue {
     }
 
     public Queue enqueue(Object value) {
-        throw Kamayan.todo(
-            "The enqueue(Object) method should add the argument to the end of",
-            "the queue, which should increase the size by 1. The return value",
-            "must be this."
-        );
+        // throw Kamayan.todo(
+        //     "The enqueue(Object) method should add the argument to the end of",
+        //     "the queue, which should increase the size by 1. The return value",
+        //     "must be this."
+        // );
+        list.add(value);
+        return this;
     }
 
     public Object dequeue() {
-        throw Kamayan.todo(
-            "The dequeue() method should remove and return the first value in",
-            "the queue. An IndexOutOfBoundsException should be thrown if the",
-            "Queue is empty."
-        );
+        // throw Kamayan.todo(
+        //     "The dequeue() method should remove and return the first value in",
+        //     "the queue. An IndexOutOfBoundsException should be thrown if the",
+        //     "Queue is empty."
+        // );
+        Object temp = list.first();
+        list.deleteFirst();
+        return temp;
     }
 
     public boolean isEmpty() {
-        throw Kamayan.todo(
-            "The isEmpty() method should return whether or not the size is 0."
-        );
+        // throw Kamayan.todo(
+        //     "The isEmpty() method should return whether or not the size is 0."
+        // );
+
+        return list.size() == 0;
     }
 
     public Object peek() {
-        throw Kamayan.todo(
-            "The peek() method should return the first value in the queue,",
-            "without removing any elements in the queue."
-        );
+        // throw Kamayan.todo(
+        //     "The peek() method should return the first value in the queue,",
+        //     "without removing any elements in the queue."
+        // );
+
+        if (isEmpty()) {
+            throw new IndexOutOfBoundsException("The list is empty!");
+        }
+
+        return list.first();
     }
 }
