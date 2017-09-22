@@ -1,6 +1,7 @@
 package com.on_site.kamayan.collections;
 
 import com.on_site.kamayan.Kamayan;
+import com.on_site.kamayan.Ref;
 
 public class Hash {
     private DoublyLinkedList[] hash;
@@ -34,17 +35,61 @@ public class Hash {
     }
 
     public Hash put(Object key, Object value) {
-        throw Kamayan.todo(
-        );
+
+        if (key == null)
+            throw new NullPointerException();
+
+        int h = key.hashCode() % 10;
+        if (hash[h] == null)
+            hash[h] = new DoublyLinkedList();
+
+        if (get(key) == null) {
+            hash[h].add(new Entry(key, value));
+            this.size++;
+        } else {
+            DoublyLinkedList temp = new DoublyLinkedList();
+            hash[h].each((entry) -> {
+                    Entry current = (Entry)entry;
+                    if (current.getKey().equals(key)) {
+                        temp.add(new Entry(key, value));
+                    } else {
+                        temp.add(current);
+                    }
+                });
+            hash[h] = temp;
+        }
+
+        return this;
     }
 
     public Object get(Object key) {
-        throw Kamayan.todo(
-        );
+
+        int h = key.hashCode() % 10;
+
+        if (hash[h] == null)
+            throw new MissingKeyException();
+
+        DoublyLinkedList temp = hash[h];
+
+        Ref<Object> ref = new Ref<>();
+        temp.each((entry)-> {
+                Entry current = (Entry)entry;
+                if (current.getKey().equals(key))
+                    ref.set(current.getValue());
+            });
+
+        return ref.get();
+    }
+
+    private void resize() {
+
     }
 
     public boolean contains(Object key) {
-        throw Kamayan.todo(
-        );
+        try {
+            return get(key) != null;
+        } catch (MissingKeyException e) {
+            return false;
+        }
     }
 }
