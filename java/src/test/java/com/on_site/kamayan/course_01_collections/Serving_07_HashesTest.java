@@ -130,7 +130,7 @@ public class Serving_07_HashesTest extends TestCase {
         assertEquals(42, hash.get(new Key("abc", 1)));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void manyPutsCausesInternalArrayToBeResizedAndRehashedButEntriesStay() throws Exception {
         Hash hash = new Hash();

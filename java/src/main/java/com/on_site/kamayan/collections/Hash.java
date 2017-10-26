@@ -3,6 +3,8 @@ package com.on_site.kamayan.collections;
 import com.on_site.kamayan.Kamayan;
 import com.on_site.kamayan.Ref;
 
+import java.util.ArrayList;
+
 public class Hash {
     private DoublyLinkedList[] hash;
     private int size;
@@ -34,12 +36,36 @@ public class Hash {
         return size;
     }
 
+    private void resize() {
+        ArrayList<Entry> temp = new ArrayList<>();
+
+        for (int i = 0; i < hash.length; i++) {
+            if (hash[i] == null) continue;
+            if (hash[i].size() == 0) continue;
+            hash[i].each((entry)-> {
+                    Entry current = (Entry)entry;
+                    temp.add(current);
+                });
+        }
+
+        hash = new DoublyLinkedList[hash.length * 2];
+        this.size = 0;
+        for (int i = 0; i < temp.size(); i++) {
+            Entry e = temp.get(i);
+            this.put(e.getKey(), e.getValue());
+        }
+    }
+
     public Hash put(Object key, Object value) {
+
+        if ((int)(size * 0.75) > hash.length)
+            resize();
 
         if (key == null)
             throw new NullPointerException();
 
-        int h = key.hashCode() % 10;
+        int h = key.hashCode() % hash.length;
+        if (h < 0) h *= -1;
         if (hash[h] == null)
             hash[h] = new DoublyLinkedList();
 
@@ -64,7 +90,8 @@ public class Hash {
 
     public Object get(Object key) {
 
-        int h = key.hashCode() % 10;
+        int h = key.hashCode() % hash.length;
+        if (h < 0) h *= -1;
 
         if (hash[h] == null)
             throw new MissingKeyException();
@@ -79,10 +106,6 @@ public class Hash {
             });
 
         return ref.get();
-    }
-
-    private void resize() {
-
     }
 
     public boolean contains(Object key) {
