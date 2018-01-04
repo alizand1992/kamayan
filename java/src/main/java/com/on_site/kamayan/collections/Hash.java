@@ -58,7 +58,7 @@ public class Hash {
 
     public Hash put(Object key, Object value) {
 
-        if ((int)(size * 0.75) > hash.length)
+        if (size > (int)hash.length * 0.75)
             resize();
 
         if (key == null)
