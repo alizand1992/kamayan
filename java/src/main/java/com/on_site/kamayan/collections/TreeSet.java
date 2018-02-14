@@ -27,12 +27,12 @@ public class TreeSet<T extends Comparable<?>> {
         );
     }
 
-    public boolean contains(T object) {
+    public TreeSet<T> remove(T object) {
         throw Kamayan.todo(
         );
     }
 
-    public TreeSet<T> remove(T object) {
+    public boolean contains(T object) {
         throw Kamayan.todo(
         );
     }
