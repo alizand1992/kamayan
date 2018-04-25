@@ -11,14 +11,14 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class Serving_08_TreeSetTest extends TestCase {
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addReturnsSelf() {
         TreeSet<Integer> set = new TreeSet<>();
         assertEquals(set, set.add(42));
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addIncreasesTheSize() {
         TreeSet<Integer> set = new TreeSet<>();
@@ -27,7 +27,7 @@ public class Serving_08_TreeSetTest extends TestCase {
         assertEquals(1, set.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    //    @Ignore("Remove this line to run this test")
     @Test
     public void addDoesntIncreaseTheSizeIfTheValueIsAlreadyThere() {
         TreeSet<Integer> set = new TreeSet<>();
